@@ -9,6 +9,7 @@ import PokemonDetails from "./Components/PokemonDetails/PokemonDetails";
 
 const App = () => {
   const [pokemons, setPokemons] = useState([]);
+  const [pokemonDetails, setPokemonDetails] = useState();
   const [currentPage, setCurrentPage] = useState(
     "https://pokeapi.co/api/v2/pokemon/"
   );
@@ -18,6 +19,8 @@ const App = () => {
   useEffect(() => {
     fetchPokemons();
   }, [currentPage]);
+
+  // console.log(pokemonDetails);
 
   const fetchPokemons = () => {
     axios
@@ -53,7 +56,7 @@ const App = () => {
             />
           }
         />
-        <Route path="/pokemons/:id" element={<PokemonDetails />} />
+        <Route path=":id" element={<PokemonDetails pokemons={pokemons} />} />
       </Routes>
     </>
   );
