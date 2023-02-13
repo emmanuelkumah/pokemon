@@ -1,12 +1,14 @@
 import React from "react";
+import styles from "./styles/App.module.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Pokemons from "./Components/Pokemons/Pokemons";
 import PokemonDetails from "./Components/PokemonDetails/PokemonDetails";
 import SearchInput from "./Components/SearchPokemon/SearchInput";
 import FoundPokemon from "./Components/SearchPokemon/FoundPokemon";
+import NavBar from "./Components/NavBar/NavBar";
+import Footer from "./Components/Footer/Footer";
 
 const App = () => {
   const [pokemons, setPokemons] = useState([]);
@@ -14,7 +16,6 @@ const App = () => {
   const [searchPokemon, setSearchPokemon] = useState("");
   const [findEnteredPokemon, setFindEnteredPokemon] = useState("");
   const [hasSearchedPokemon, setHasSearchedPokemon] = useState(false);
-  const [errorMsg, setErrorMsg] = useState("");
   const [currentPage, setCurrentPage] = useState(
     "https://pokeapi.co/api/v2/pokemon/"
   );
@@ -58,29 +59,33 @@ const App = () => {
 
   return (
     <>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <SearchInput
-                searchPokemon={searchPokemon}
-                setSearchPokemon={setSearchPokemon}
-              />
-              {findEnteredPokemon.length !== 0 ? (
-                <FoundPokemon findEnteredPokemon={findEnteredPokemon} />
-              ) : (
-                <Pokemons
-                  pokemons={pokemons}
-                  fetchNextPage={fetchNextPage}
-                  fetchPreviousPage={fetchPreviousPage}
+      <NavBar />
+      <section className={styles["app__main"]}>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <SearchInput
+                  searchPokemon={searchPokemon}
+                  setSearchPokemon={setSearchPokemon}
                 />
-              )}
-            </>
-          }
-        />
-        <Route path=":id" element={<PokemonDetails pokemons={pokemons} />} />
-      </Routes>
+                {findEnteredPokemon.length !== 0 ? (
+                  <FoundPokemon findEnteredPokemon={findEnteredPokemon} />
+                ) : (
+                  <Pokemons
+                    pokemons={pokemons}
+                    fetchNextPage={fetchNextPage}
+                    fetchPreviousPage={fetchPreviousPage}
+                  />
+                )}
+              </>
+            }
+          />
+          <Route path=":id" element={<PokemonDetails pokemons={pokemons} />} />
+        </Routes>
+      </section>
+      <Footer />
     </>
   );
 };

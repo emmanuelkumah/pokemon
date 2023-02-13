@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import styles from "../../styles/Pokemons.module.css";
 
 const PokemonDetails = ({ pokemons }) => {
   const [details, setDetails] = useState({});
@@ -28,13 +29,16 @@ const PokemonDetails = ({ pokemons }) => {
 
   return (
     <>
-      <section>
-        <img src={imgURL} alt="pokemonDetails" />
-        <h2>{details.name}</h2>
-
-        <a href={externalURL} target="_blank" rel="noreferrer">
-          Learn more
-        </a>
+      <section className={styles["pokemon_details__container"]}>
+        <div className={styles["pokemon_detail"]}>
+          <img src={imgURL} alt="pokemonDetails" />
+          <h2>{details.name}</h2>
+          <button>
+            <a href={externalURL} target="_blank" rel="noreferrer">
+              Learn more
+            </a>
+          </button>
+        </div>
       </section>
     </>
   );

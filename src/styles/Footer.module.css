@@ -1,0 +1,11 @@
+.footer__container {
+  background-color: #2b303a;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+.footer__container > h4 {
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}

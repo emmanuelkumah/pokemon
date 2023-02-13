@@ -1,0 +1,132 @@
+.pokemons__heading {
+  text-align: center;
+}
+.pokemons__heading > h2 {
+  margin-bottom: 1rem;
+}
+.pokemons__heading > p {
+  margin-bottom: 1rem;
+}
+.pokemons__lists_container > ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.pokemon_list {
+  flex-basis: 20%;
+  border: 3px solid #f9cb40;
+  border-radius: 5px;
+  height: auto;
+  margin: 1rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.pokemon_name {
+  font-size: 1.3rem;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+.pokemon__name_container {
+  padding: 1rem;
+}
+.pokemon__btn {
+  outline: none;
+  border: none;
+  background-color: #476795;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: #fff;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+.pokemon__btn:hover,
+.pokemon__btn:active {
+  background-color: #74a4bc;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  transform: scale(1.1);
+}
+.pokemon__pageBtns {
+  display: flex;
+  gap: 3rem;
+  margin-top: 1rem;
+  margin-left: 4rem;
+}
+.pokemon__pageBtns > button {
+  outline: none;
+  border: none;
+  padding: 1rem;
+  background-color: #f9cb40;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+.btn__next:hover,
+.btn__next:active,
+.btn__prev:hover,
+.btn__prev:active {
+  background-color: #2b303a;
+  color: #f9cb40;
+  cursor: pointer;
+}
+.pokemon__form {
+  display: flex;
+  place-items: center;
+}
+.pokemon__form > h4 {
+  margin-left: 4rem;
+}
+.pokemon__inputField {
+  border: 1px solid #f9cb40;
+  border-radius: 10px;
+  outline: none;
+  padding: 1rem;
+  width: 50vw;
+  margin: 2rem 4rem;
+  font-size: 1.1rem;
+}
+/* Pokemon details */
+.pokemon_details__container {
+  background-color: #f9cb40;
+  border-radius: 10px;
+  margin: 0 auto;
+  width: 50%;
+}
+.pokemon_detail {
+  text-align: center;
+}
+.pokemon_detail > button {
+  padding: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: #2b303a;
+  border: none;
+  color: #fff;
+}
+.pokemon_detail > button > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Responsiveness */
+@media screen and (min-width: 301px) and (max-width: 1200px) {
+  .pokemons__lists_container > ul {
+    flex-direction: column;
+  }
+
+  .pokemon_list {
+    flex-basis: 100%;
+  }
+  .pokemon__form {
+    flex-direction: column;
+  }
+  .pokemon__form > h4 {
+    margin-left: 0.5rem;
+  }
+  .pokemon_details__container {
+    width: 90%;
+  }
+
+  .pokemon__pageBtns {
+    margin-left: 1rem;
+  }
+}

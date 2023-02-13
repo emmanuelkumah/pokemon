@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "../../styles/Pokemons.module.css";
 
 const SearchInput = ({ searchPokemon, setSearchPokemon }) => {
   //handle form submission
@@ -10,17 +11,19 @@ const SearchInput = ({ searchPokemon, setSearchPokemon }) => {
 
   return (
     <>
-      <div>
+      <section className={styles["pokemon__form"]}>
+        <h4>Search Pokemon by Name</h4>
         <form onSubmit={handleSubmit}>
           <input
+            className={styles["pokemon__inputField"]}
             type="text"
             autoFocus
             value={searchPokemon}
-            placeholder="Enter the name of pokemon to search for"
+            placeholder="Enter the name of pokemon to search by"
             onChange={(event) => setSearchPokemon(event.target.value)}
           />
         </form>
-      </div>
+      </section>
     </>
   );
 };
